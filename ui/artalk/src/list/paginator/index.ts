@@ -3,7 +3,6 @@ import ReadMorePaginator from './read-more'
 import type { ContextApi, ListFetchParams } from '@/types'
 
 export interface IPgHolderOpt {
-  ctx: ContextApi
   total: number
   pageSize: number
 

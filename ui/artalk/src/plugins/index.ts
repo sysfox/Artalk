@@ -1,3 +1,4 @@
+import { Services } from './services'
 import { Markdown } from './markdown'
 import { EditorKit } from './editor-kit'
 import { ListPlugins } from './list'
@@ -10,6 +11,7 @@ import { PageVoteWidget } from './page-vote'
 import type { ArtalkPlugin } from '@/types'
 
 export const DefaultPlugins: ArtalkPlugin[] = [
+  ...Services,
   Markdown,
   EditorKit,
   AdminOnlyElem,

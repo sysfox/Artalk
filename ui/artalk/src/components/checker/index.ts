@@ -3,9 +3,9 @@ import AdminChecker from './admin'
 import type { Api } from '@/api'
 import Dialog from '@/components/dialog'
 import $t from '@/i18n'
-import type { ContextApi } from '@/types'
-import type User from '@/lib/user'
 import * as Utils from '@/lib/utils'
+import type User from '@/lib/user'
+import type { LayerManager } from '@/layer'
 
 export interface CheckerCaptchaPayload extends CheckerPayload {
   img_data?: string
@@ -19,8 +19,9 @@ export interface CheckerPayload {
 }
 
 export interface CheckerLauncherOptions {
-  getCtx: () => ContextApi
   getApi: () => Api
+  getLayers: () => LayerManager
+  getUser: () => User
   getCaptchaIframeURL: () => string
   onReload: () => void
 }
@@ -61,7 +62,7 @@ export default class CheckerLauncher {
 
   public fire(checker: Checker, payload: CheckerPayload, postFire?: (c: CheckerCtx) => void) {
     // 显示层
-    const layer = this.opts.getCtx().get('layerManager').create(`checker-${new Date().getTime()}`)
+    const layer = this.opts.getLayers().create(`checker-${new Date().getTime()}`)
     layer.show()
 
     const close = () => {
@@ -77,7 +78,7 @@ export default class CheckerLauncher {
       },
       get: (key) => checkerStore[key],
       getOpts: () => this.opts,
-      getUser: () => this.opts.getCtx().get('user'),
+      getUser: () => this.opts.getUser(),
       getApi: () => this.opts.getApi(),
       hideInteractInput: () => {
         hideInteractInput = true

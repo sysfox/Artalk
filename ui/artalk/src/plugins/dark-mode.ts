@@ -19,7 +19,7 @@ export const DarkMode: ArtalkPlugin = (ctx) => {
 
   const sync = (darkMode: boolean | 'auto') => {
     // the elements that classnames need to be updated when darkMode changed
-    const $els = [ctx.$root, ctx.get('layerManager').getEl()]
+    const $els = [ctx.$root, ctx.get('layers').getEl()]
 
     // init darkModeMedia if not exists, and only create once
     if (!darkModeMedia) {

@@ -13,7 +13,7 @@ export const GlobalPlugins: Set<ArtalkPlugin> = new Set([...DefaultPlugins])
  */
 export const PluginOptions: WeakMap<ArtalkPlugin, any> = new WeakMap()
 
-export async function load(ctx: ContextApi) {
+export async function mount(ctx: ContextApi) {
   const loadedPlugins = new Set<ArtalkPlugin>()
   const loadPlugins = (plugins: Set<ArtalkPlugin>) => {
     plugins.forEach((plugin) => {
@@ -140,7 +140,7 @@ export function onLoadErr(ctx: ContextApi, err: any) {
     $err: ctx.get('list').$el,
     errMsg: err.msg || String(err),
     errData: err.data,
-    retryFn: () => load(ctx),
+    retryFn: () => mount(ctx),
     onOpenSidebar: ctx.get('user').getData().is_admin
       ? () =>
           ctx.showSidebar({

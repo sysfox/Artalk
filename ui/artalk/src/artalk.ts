@@ -3,11 +3,10 @@ import './style/main.scss'
 import type { EventHandler } from './lib/event-manager'
 import Context from './context'
 import { handelCustomConf, convertApiOptions } from './config'
-import Services from './service'
 import * as Stat from './plugins/stat'
 import { Api } from './api'
-import type { TInjectedServices } from './service'
-import { GlobalPlugins, PluginOptions, load } from './load'
+import { GlobalPlugins, PluginOptions, mount } from './load'
+import { DataManager } from './data'
 import type { ArtalkConfigPartial, EventPayloadMap, ArtalkPlugin, ContextApi } from '@/types'
 
 /**
@@ -18,23 +17,25 @@ import type { ArtalkConfigPartial, EventPayloadMap, ArtalkPlugin, ContextApi } f
 export default class Artalk {
   public ctx!: ContextApi
 
-  constructor(conf: ArtalkConfigPartial) {
+  constructor(_conf: ArtalkConfigPartial) {
     // Init Config
-    const handledConf = handelCustomConf(conf, true)
+    const conf = handelCustomConf(_conf, true)
+
+    // Init Root Element
+    const $root = conf.el as HTMLElement
+    $root.classList.add('artalk')
+    $root.innerHTML = ''
+    conf.darkMode && $root.classList.add('atk-dark-mode')
 
     // Init Context
-    this.ctx = new Context(handledConf)
+    const ctx = this.ctx = new Context(conf, $root)
+    ctx.on('mounted', () => (ctx.mounted = true))
 
-    // Init Services
-    Object.entries(Services).forEach(([name, initService]) => {
-      const obj = initService(this.ctx)
-      obj && this.ctx.inject(name as keyof TInjectedServices, obj) // auto inject deps to ctx
-    })
-
+    // Init plugins and mount
     if (import.meta.env.DEV && import.meta.env.VITEST) {
-      global.devLoadArtalk = () => load(this.ctx)
+      global.devLoadArtalk = () => mount(ctx)
     } else {
-      load(this.ctx)
+      mount(ctx)
     }
   }
 

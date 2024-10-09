@@ -22,7 +22,7 @@ export const EditorKit: ArtalkPlugin = (ctx) => {
   const editor = ctx.get('editor')
 
   const editorPlugs = new PlugManager(editor)
-  ctx.inject('editorPlugs', editorPlugs)
+  ctx.provide('editorPlugs', () => editorPlugs)
 }
 
 export class PlugManager {

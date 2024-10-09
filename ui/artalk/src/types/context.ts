@@ -9,29 +9,36 @@ import type {
   ListFetchParams,
   NotifyLevel,
 } from '.'
-import type { TInjectedServices } from '@/service'
 import type { CheckerCaptchaPayload, CheckerPayload } from '@/components/checker'
+import type { InjectionContainerMethods } from '@/lib/injection'
 import type { EventManagerFuncs } from '@/lib/event-manager'
 import type { I18n } from '@/i18n'
 import type { Api, ApiHandlers } from '@/api'
 import type { CommentNode } from '@/comment'
+import EventManager from '@/lib/event-manager'
 
 /**
  * Artalk Context
  */
-export interface ContextApi extends EventManagerFuncs<EventPayloadMap> {
+export interface ContextApi extends EventManagerFuncs<EventPayloadMap>, InjectionContainerMethods {
   /** Artalk 根元素对象 */
   $root: HTMLElement
 
-  /** 依赖注入函数 */
-  inject<K extends keyof TInjectedServices>(depName: K, obj: TInjectedServices[K]): void
+  /**
+   * Inject a dependency object
+   *
+   * @deprecated Use `inject()` instead
+   */
+  get<T extends keyof InjectDeps>(key: T): InjectDeps[T]
 
-  /** 获取依赖对象 */
-  get<K extends keyof TInjectedServices>(depName: K): TInjectedServices[K]
-
-  /** 配置对象 */
-  // TODO: 修改为 getConf() 和 setConf() 并且返回拷贝而不是引用
+  /**
+   * Get config object
+   *
+   * @deprecated Use `getConf()` and `updateConf()` instead
+   */
   conf: ArtalkConfig
+
+  getEvents(): EventManager<EventPayloadMap>
 
   /** marked 依赖对象 */
   getMarked(): Marked | undefined
