@@ -43,7 +43,7 @@ export default defineConfig({
     {
       cwd: '../../',
       command: 'make dev',
-      url: 'http://localhost:23366',
+      url: 'http://localhost:9000',
       reuseExistingServer: !process.env.CI,
     },
   ],

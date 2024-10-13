@@ -94,7 +94,7 @@ theme = "chalk"
   twitter='example'
   github='example'
 [params.artalk]
-  server='http://localhost:23366'
+  server='http://localhost:9000'
   site='Default Site'
 EOF
 

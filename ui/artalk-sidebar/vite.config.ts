@@ -54,8 +54,8 @@ export default defineConfig({
   server: {
     port: 23367,
     proxy: {
-      '/api': 'http://127.0.0.1:23366',
-      '/dist': 'http://127.0.0.1:23366',
+      '/api': 'http://127.0.0.1:9000',
+      '/dist': 'http://127.0.0.1:9000',
     },
   },
   css: {

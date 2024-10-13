@@ -71,7 +71,7 @@ Artalk 是一款简单易用但功能丰富的评论系统，你可以开箱即�
 ```bash
 docker run -d \
     --name artalk \
-    -p 8080:23366 \
+    -p 8080:9000 \
     -v $(pwd)/data:/data \
     -e "TZ=Asia/Shanghai" \
     -e "ATK_LOCALE=zh-CN" \

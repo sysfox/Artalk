@@ -37,7 +37,7 @@ cd Artalk
 1. **搭建完整的开发实例**：
 
    - 导航到 Artalk 仓库目录。
-   - 执行 `make dev` 在端口 `23366` 上运行后端。
+   - 执行 `make dev` 在端口 `9000` 上运行后端。
    - 执行 `pnpm dev` 在端口 `5173` 上运行前端。
    - 可选地，执行 `pnpm dev:sidebar` 在端口 `23367` 上运行侧边栏前端。
 
@@ -109,8 +109,8 @@ Artalk 是一个 monorepo 项目，这意味着所有源代码都在一个仓库
 
 2. **启动后端程序**：
 
-   - 运行 `make dev` 启动后端，端口为 `23366`。
-   - 通过 `http://localhost:23366` 访问。
+   - 运行 `make dev` 启动后端，端口为 `9000`。
+   - 通过 `http://localhost:9000` 访问。
    - 建议保留默认端口进行测试。
    - （替代）使用 `ARGS="version" make dev` 传递启动参数（默认是 `ARGS="server"`）。
 

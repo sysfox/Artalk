@@ -29,7 +29,7 @@ func NewServeCommand(app *ArtalkCmd) *cobra.Command {
 	}
 
 	flagPV(serverCmd, "host", "", "0.0.0.0", "Listening IP")
-	flagPV(serverCmd, "port", "", 23366, "Listening port")
+	flagPV(serverCmd, "port", "", 9000, "Listening port")
 
 	return serverCmd
 }

@@ -13,7 +13,7 @@
 ```bash
 docker run -d \
     --name artalk \
-    -p 8080:23366 \
+    -p 8080:9000 \
     -v $(pwd)/data:/data \
     -e "TZ=Asia/Shanghai" \
     -e "ATK_LOCALE=zh-CN" \
@@ -73,7 +73,7 @@ Artalk.init({
 4. 在你的网页中配置和初始化 Artalk 客户端：
 
    ```js
-   Artalk.init({ server: 'http://artalk.example.com:23366' })
+   Artalk.init({ server: 'http://artalk.example.com:9000' })
    ```
 
 进阶操作：
@@ -142,7 +142,7 @@ services:
     image: artalk/artalk-go
     restart: unless-stopped
     ports:
-      - 8080:23366
+      - 8080:9000
     volumes:
       - ./data:/data
     environment:

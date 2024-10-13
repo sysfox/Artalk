@@ -242,11 +242,11 @@ cache:
 
 ## Listening Address `host`
 
-The default HTTP port for Artalk is 23366. You can specify it in the configuration file:
+The default HTTP port for Artalk is 9000. You can specify it in the configuration file:
 
 ```yaml
 host: '0.0.0.0'
-port: 23366
+port: 9000
 ```
 
 Configuring the `host` listening address to `0.0.0.0` will expose the Artalk service to the entire network.

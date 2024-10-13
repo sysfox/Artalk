@@ -2,7 +2,7 @@
 host: "0.0.0.0"
 
 # Listen port
-port: 23366
+port: 9000
 
 # App Key (for generation of JWT)
 app_key: ""
@@ -92,7 +92,7 @@ cache:
     db: 0
 
 # Trusted domains
-# -- e.g. ["https://artalk.example.com:23366"] add url of your site her --
+# -- e.g. ["https://artalk.example.com:9000"] add url of your site her --
 trusted_domains: []
 
 # SSL
@@ -292,7 +292,7 @@ auth:
   # Allow anonymous commenting (Allow skipping verification, only fill in an anonymous nickname and email)
   anonymous: false
   # Callback URL (https://example.com/api/v2/auth/{provider}/callback)
-  callback: "http://localhost:23366/api/v2/auth/{provider}/callback"
+  callback: "http://localhost:9000/api/v2/auth/{provider}/callback"
   # Email
   email:
     # Enable email password login

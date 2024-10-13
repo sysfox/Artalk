@@ -1,5 +1,5 @@
 host: "0.0.0.0"
-port: 23366
+port: 9000
 app_key: ""
 debug: false
 locale: en
@@ -147,7 +147,7 @@ admin_notify:
 auth:
   enabled: false
   anonymous: false
-  callback: "http://localhost:23366/api/v2/auth/{provider}/callback"
+  callback: "http://localhost:9000/api/v2/auth/{provider}/callback"
   email:
     enabled: true
     verify_subject: "Your Code - {{code}}"

@@ -2,7 +2,7 @@
 host: "0.0.0.0"
 
 # 伺服器端口
-port: 23366
+port: 9000
 
 # 加密密鑰
 app_key: ""
@@ -88,7 +88,7 @@ cache:
     db: 0
 
 # 可信網域
-# -- 例如：["https://artalk.example.com:23366"] --
+# -- 例如：["https://artalk.example.com:9000"] --
 trusted_domains: []
 
 # SSL
@@ -300,7 +300,7 @@ auth:
   # 允許匿名評論 (允許跳過驗證，僅填寫匿名的暱稱和郵箱)
   anonymous: false
   # 回調地址 (https://example.com/api/v2/auth/{provider}/callback)
-  callback: "http://localhost:23366/api/v2/auth/{provider}/callback"
+  callback: "http://localhost:9000/api/v2/auth/{provider}/callback"
   # Email
   email:
     # 啟用郵箱密碼登錄

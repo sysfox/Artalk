@@ -20,7 +20,7 @@ services:
     image: artalk/artalk-go
     restart: unless-stopped
     ports:
-      - 8080:23366
+      - 8080:9000
     volumes:
       - ./data:/data
     environment:
@@ -76,7 +76,7 @@ ATK_TRUSTED_DOMAINS_0="https://a.com"
 | **ATK_HOST** | `"0.0.0.0"` | 服务器地址 | host (服务器地址) |
 | **ATK_LOCALE** | `"zh-CN"` | 语言 (可选：`["en", "zh-CN", "zh-TW", "ja", "fr", "ko", "ru"]`) | locale (语言) |
 | **ATK_LOGIN_TIMEOUT** | `259200` | 登录有效时长 (单位：秒) | login_timeout (登录有效时长) |
-| **ATK_PORT** | `23366` | 服务器端口 | port (服务器端口) |
+| **ATK_PORT** | `9000` | 服务器端口 | port (服务器端口) |
 | **ATK_SITE_DEFAULT** | `"默认站点"` | 默认站点名 | site_default (默认站点名) |
 | **ATK_SITE_URL** | `""` | 默认站点地址 | site_url (默认站点地址) |
 | **ATK_TIMEZONE** | `"Asia/Shanghai"` | 时间区域 | timezone (时间区域) |
@@ -127,7 +127,7 @@ ATK_TRUSTED_DOMAINS_0="https://a.com"
 | **ATK_AUTH_AUTH0_CLIENT_SECRET** | `""` | ClientSecret | auth.auth0.client_secret (社交登录 > Auth0 > ClientSecret) |
 | **ATK_AUTH_AUTH0_DOMAIN** | `""` | Domain | auth.auth0.domain (社交登录 > Auth0 > Domain) |
 | **ATK_AUTH_AUTH0_ENABLED** | `false` | 启用 | auth.auth0.enabled (社交登录 > Auth0 > Enabled) |
-| **ATK_AUTH_CALLBACK** | `"http://localhost:23366/api/v2/auth/{provider}/callback"` | 回调地址 (https://example.com/api/v2/auth/{provider}/callback) | auth.callback (社交登录 > 回调地址) |
+| **ATK_AUTH_CALLBACK** | `"http://localhost:9000/api/v2/auth/{provider}/callback"` | 回调地址 (https://example.com/api/v2/auth/{provider}/callback) | auth.callback (社交登录 > 回调地址) |
 | **ATK_AUTH_DISCORD_CLIENT_ID** | `""` | ClientId | auth.discord.client_id (社交登录 > Discord > ClientId) |
 | **ATK_AUTH_DISCORD_CLIENT_SECRET** | `""` | ClientSecret | auth.discord.client_secret (社交登录 > Discord > ClientSecret) |
 | **ATK_AUTH_DISCORD_ENABLED** | `false` | 启用 | auth.discord.enabled (社交登录 > Discord > Enabled) |

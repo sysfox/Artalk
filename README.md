@@ -71,7 +71,7 @@ Deploy Artalk Server with Docker in one step:
 ```bash
 docker run -d \
     --name artalk \
-    -p 8080:23366 \
+    -p 8080:9000 \
     -v $(pwd)/data:/data \
     -e "TZ=America/New_York" \
     -e "ATK_LOCALE=en" \

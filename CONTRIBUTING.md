@@ -37,7 +37,7 @@ The development workflow consists of the following steps:
 1. **Set Up Complete Development Instance**:
 
    - Navigate to the Artalk Repo directory.
-   - Execute `make dev` to run the backend on port `23366`.
+   - Execute `make dev` to run the backend on port `9000`.
    - Execute `pnpm dev` to run the frontend on port `5173`.
    - Optionally, execute `pnpm dev:sidebar` to run the sidebar frontend on port `23367`.
 
@@ -109,8 +109,8 @@ Artalk is a monorepo project, meaning all the source code resides in a single re
 
 2. **Start Backend Program**:
 
-   - Run `make dev` to start the backend on port `23366`.
-   - Access it via `http://localhost:23366`.
+   - Run `make dev` to start the backend on port `9000`.
+   - Access it via `http://localhost:9000`.
    - It's recommended to keep the default port for testing.
    - (Alternative) Use `ARGS="version" make dev` to pass startup parameters (default is `ARGS="server"`).
 

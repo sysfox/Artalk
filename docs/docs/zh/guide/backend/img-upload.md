@@ -54,7 +54,7 @@ upgit:
 如果你使用 Docker 部署 Artalk，可以将 UpGit 可执行文件挂载到容器中：
 
 ```bash
-docker run -d --name artalk -v /path/to/upgit:/usr/bin/upgit -v /path/to/artalk:/app/data -p 8080:23366 artalk
+docker run -d --name artalk -v /path/to/upgit:/usr/bin/upgit -v /path/to/artalk:/app/data -p 8080:9000 artalk
 ```
 
 ## 上传频率限制

@@ -67,6 +67,6 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # expose Artalk default port
-EXPOSE 23366
+EXPOSE 9000
 
-CMD ["server", "--host", "0.0.0.0", "--port", "23366"]
+CMD ["server", "--host", "0.0.0.0", "--port", "9000"]

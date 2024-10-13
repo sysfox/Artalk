@@ -8,7 +8,7 @@
 artalk.your_domain.com {
   tls /etc/caddy/ssl/cert.pem /etc/caddy/ssl/cert.key
 
-  reverse_proxy http://localhost:23366 {
+  reverse_proxy http://localhost:9000 {
     header_up X-Forwarded-For {header.X-Forwarded-For}
   }
 }
@@ -25,7 +25,7 @@ sudo systemctl reload caddy
 假定：
 
 - 你想绑定的域名是：`artalk.your_domain.com`
-- Artalk 本地地址：`http://localhost:23366`
+- Artalk 本地地址：`http://localhost:9000`
 
 以 Ubuntu 20.04 为例：
 
@@ -50,7 +50,7 @@ server
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_pass http://localhost:23366/;
+    proxy_pass http://localhost:9000/;
   }
 }
 ```
@@ -98,13 +98,13 @@ Artalk.init({ server: 'http://artalk.your_domain.com' })
 
     RewriteEngine On
     RewriteCond %{QUERY_STRING} transport=polling         [NC]
-    RewriteRule /(.*)           http://localhost:23366/$1 [P]
+    RewriteRule /(.*)           http://localhost:9000/$1 [P]
 
     <IfModule mod_proxy.c>
         ProxyRequests Off
         SSLProxyEngine on
-        ProxyPass / http://localhost:23366/
-        ProxyPassReverse / http://localhost:23366/
+        ProxyPass / http://localhost:9000/
+        ProxyPassReverse / http://localhost:9000/
     </IfModule>
 </VirtualHost>
 ```

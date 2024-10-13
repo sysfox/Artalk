@@ -12,7 +12,7 @@ let artalk: Artalk
 onMounted(() => {
   artalk = Artalk.init({
     el: el.value,
-    server: 'http://localhost:23366',
+    server: 'http://localhost:9000',
     site: 'ArtalkDocs',
     pageKey: route.path,
   })

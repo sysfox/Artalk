@@ -1,7 +1,7 @@
 # This script is used by internal/query/testdata/example_site_conf.yml
 # Do not modify this script unless you know what you are doing.
 host: "0.0.0.0"
-port: 23366
+port: 9000
 app_key: test
 debug: false
 timezone: Asia/Shanghai

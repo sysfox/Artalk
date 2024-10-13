@@ -20,7 +20,7 @@ services:
     image: artalk/artalk-go
     restart: unless-stopped
     ports:
-      - 8080:23366
+      - 8080:9000
     volumes:
       - ./data:/data
     environment:
@@ -75,7 +75,7 @@ ATK_TRUSTED_DOMAINS_0="https://a.com"
 | **ATK_HOST** | `"0.0.0.0"` | Listen host | host (Listen host) |
 | **ATK_LOCALE** | `"en"` | Language (follow Unicode BCP 47) (可选：`["en", "zh-CN", "zh-TW", "ja", "fr", "ko", "ru"]`) | locale (Language) |
 | **ATK_LOGIN_TIMEOUT** | `259200` | Login timeout (in seconds) | login_timeout (Login timeout) |
-| **ATK_PORT** | `23366` | Listen port | port (Listen port) |
+| **ATK_PORT** | `9000` | Listen port | port (Listen port) |
 | **ATK_SITE_DEFAULT** | `"Default Site"` | Default site name (create when app is first launched) | site_default (Default site name) |
 | **ATK_SITE_URL** | `""` | Default site url | site_url (Default site url) |
 | **ATK_TIMEZONE** | `"Asia/Shanghai"` | Timezone (follow IANA Time Zone Database) | timezone (Timezone) |
@@ -126,7 +126,7 @@ ATK_TRUSTED_DOMAINS_0="https://a.com"
 | **ATK_AUTH_AUTH0_CLIENT_SECRET** | `""` | ClientSecret | auth.auth0.client_secret (Social Login > Auth0 > ClientSecret) |
 | **ATK_AUTH_AUTH0_DOMAIN** | `""` | Domain | auth.auth0.domain (Social Login > Auth0 > Domain) |
 | **ATK_AUTH_AUTH0_ENABLED** | `false` | 启用 | auth.auth0.enabled (Social Login > Auth0 > Enabled) |
-| **ATK_AUTH_CALLBACK** | `"http://localhost:23366/api/v2/auth/{provider}/callback"` | Callback URL (https://example.com/api/v2/auth/{provider}/callback) | auth.callback (Social Login > Callback URL) |
+| **ATK_AUTH_CALLBACK** | `"http://localhost:9000/api/v2/auth/{provider}/callback"` | Callback URL (https://example.com/api/v2/auth/{provider}/callback) | auth.callback (Social Login > Callback URL) |
 | **ATK_AUTH_DISCORD_CLIENT_ID** | `""` | ClientId | auth.discord.client_id (Social Login > Discord > ClientId) |
 | **ATK_AUTH_DISCORD_CLIENT_SECRET** | `""` | ClientSecret | auth.discord.client_secret (Social Login > Discord > ClientSecret) |
 | **ATK_AUTH_DISCORD_ENABLED** | `false` | 启用 | auth.discord.enabled (Social Login > Discord > Enabled) |

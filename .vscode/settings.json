@@ -59,5 +59,6 @@
     "sendmail",
     "sqlite",
     "pkged"
-  ]
+  ],
+  "makefile.configureOnOpen": false
 }

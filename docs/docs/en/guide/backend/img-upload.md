@@ -54,7 +54,7 @@ Starting from version `v2.8.4`, to enhance security, Artalk no longer allows spe
 If you are deploying Artalk with Docker, you can mount the UpGit executable to the container:
 
 ```bash
-docker run -d --name artalk -v /path/to/upgit:/usr/bin/upgit -v /path/to/artalk:/app/data -p 8080:23366 artalk
+docker run -d --name artalk -v /path/to/upgit:/usr/bin/upgit -v /path/to/artalk:/app/data -p 8080:9000 artalk
 ```
 
 ## Upload Frequency Limit

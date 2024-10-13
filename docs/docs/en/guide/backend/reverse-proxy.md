@@ -8,7 +8,7 @@
 artalk.your_domain.com {
   tls /etc/caddy/ssl/cert.pem /etc/caddy/ssl/cert.key
 
-  reverse_proxy http://localhost:23366 {
+  reverse_proxy http://localhost:9000 {
     header_up X-Forwarded-For {header.X-Forwarded-For}
   }
 }
@@ -25,7 +25,7 @@ sudo systemctl reload caddy
 Assumptions:
 
 - The domain you want to bind is: `artalk.your_domain.com`
-- Artalk local address: `http://localhost:23366`
+- Artalk local address: `http://localhost:9000`
 
 For Ubuntu 20.04:
 
@@ -49,7 +49,7 @@ server {
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_pass http://localhost:23366/;
+    proxy_pass http://localhost:9000/;
   }
 }
 ```
@@ -97,13 +97,13 @@ You need to enable the reverse proxy module `mod_proxy.c`
 
     RewriteEngine On
     RewriteCond %{QUERY_STRING} transport=polling         [NC]
-    RewriteRule /(.*)           http://localhost:23366/$1 [P]
+    RewriteRule /(.*)           http://localhost:9000/$1 [P]
 
     <IfModule mod_proxy.c>
         ProxyRequests Off
         SSLProxyEngine on
-        ProxyPass / http://localhost:23366/
-        ProxyPassReverse / http://localhost:23366/
+        ProxyPass / http://localhost:9000/
+        ProxyPassReverse / http://localhost:9000/
     </IfModule>
 </VirtualHost>
 ```

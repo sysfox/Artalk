@@ -13,7 +13,7 @@ It is recommended to use Docker for deployment. Pre-install the [Docker Engine](
 ```bash
 docker run -d \
     --name artalk \
-    -p 8080:23366 \
+    -p 8080:9000 \
     -v $(pwd)/data:/data \
     -e "TZ=America/New_York" \
     -e "ATK_LOCALE=en" \
@@ -70,7 +70,7 @@ In the Dashboard, you can [configure the comment system](./backend/config.md) to
 4. Configure and initialize the client on your webpage:
 
    ```js
-   Artalk.init({ server: 'http://artalk.example.com:23366' })
+   Artalk.init({ server: 'http://artalk.example.com:9000' })
    ```
 
 Advanced operations:
@@ -139,7 +139,7 @@ services:
     image: artalk/artalk-go
     restart: unless-stopped
     ports:
-      - 8080:23366
+      - 8080:9000
     volumes:
       - ./data:/data
     environment:

@@ -67,7 +67,7 @@ if (currentLib === 'lightGallery') {
 
 Artalk.init({
   el: '.artalk-container',
-  server: 'http://localhost:23366',
+  server: 'http://localhost:9000',
   site: 'ArtalkDocs',
   pageKey: 'https://artalk.js.org/guide/intro.html',
 })
